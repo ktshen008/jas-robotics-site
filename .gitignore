@@ -1,0 +1,8 @@
+# Internal working documents — do NOT publish.
+# The public repo backs a GitHub Pages site; these files contain
+# internal strategy and references that must never appear publicly
+# (brief §7 rule 1, §11).
+CLAUDE.md
+DESIGN-NOTES.md
+JAS-Robotics-Web-Design-Brief-v2.md
+.claude/

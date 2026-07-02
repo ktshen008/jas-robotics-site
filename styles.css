@@ -143,6 +143,18 @@ img, svg { max-width: 100%; height: auto; }
 }
 .wordmark .wordmark-dot { color: var(--track); }
 .wordmark:hover { color: var(--on-dark); }
+.wordmark { display: inline-flex; align-items: center; gap: 0.55rem; }
+.wordmark-mark { width: 22px; height: 22px; color: var(--track); flex: none; }
+
+.topbar {
+  background: var(--dark-2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--mono); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--on-dark-soft);
+}
+.topbar-inner { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.45rem; }
+@media (max-width: 37em) { .topbar-note { display: none; } }
 
 .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; flex-wrap: wrap; }
 .site-nav a {
@@ -193,6 +205,22 @@ img, svg { max-width: 100%; height: auto; }
 
 .btn-row { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.5rem; }
 
+/* supplier capability strip (hero) */
+.cap-strip {
+  list-style: none;
+  display: flex; flex-wrap: wrap; gap: 0.5rem 2.25rem;
+  margin: 3rem 0 0; padding: 1.1rem 0 0;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.cap-strip li { display: flex; align-items: center; gap: 0.6rem; }
+.cap-strip li::before {
+  content: ""; width: 0.5rem; height: 0.5rem;
+  background: var(--track); border-radius: 2px; flex: none;
+}
+
 /* ---------- buttons ---------- */
 
 .btn {
@@ -224,11 +252,20 @@ img, svg { max-width: 100%; height: auto; }
   border-radius: var(--radius);
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+@media (hover: hover) {
+  .card:not(.card--gated):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(32, 43, 52, 0.1);
+    border-color: var(--track);
+  }
 }
 .card > .icon { color: var(--track); margin-bottom: 0.9rem; }
 .card h3 { margin-bottom: 0.4em; }
 .card p { color: var(--ink-soft); font-size: 0.97rem; }
 .card .card-link { font-weight: 650; font-size: 0.97rem; }
+.card .card-link::after { content: "\00a0\2192"; }
 
 .card--gated {
   background: transparent;
@@ -368,7 +405,11 @@ img, svg { max-width: 100%; height: auto; }
 /* ---------- closing CTA band ---------- */
 
 .band {
-  background: var(--dark);
+  background-color: var(--dark);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 24px 24px;
   color: var(--on-dark);
   padding-block: 3.5rem;
   border-top: 3px solid var(--track);

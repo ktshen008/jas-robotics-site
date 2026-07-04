@@ -9,3 +9,8 @@ JAS-Robotics-Web-Design-Brief-v2.md
 form-setup-google-sheet.md
 HANDOFF.md
 .claude/
+
+# Local QA / scratch artifacts (screenshots, headless-browser output) — never publish.
+.chrome-qa-hero/
+*-qa/
+.qa/

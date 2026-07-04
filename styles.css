@@ -197,8 +197,8 @@ img, svg { max-width: 100%; height: auto; }
 
 .hero h1 { margin-bottom: 0.4em; }
 .hero .lead { font-size: 1.2rem; }
-.hero-art { color: var(--ink-soft); display: block; margin-inline: auto; max-width: 26rem; }
-.hero-art .art-accent { color: var(--track); }
+.hero-photo { margin: 0 auto; max-width: 30rem; }
+.hero-photo img { box-shadow: var(--shadow-sm); }
 
 .page-hero { padding-block: 3rem 2.5rem; border-bottom: 1px solid var(--line-soft); background: var(--surface); }
 .page-hero .lead { max-width: 46rem; }

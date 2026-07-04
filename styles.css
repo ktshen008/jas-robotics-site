@@ -309,6 +309,20 @@ img, svg { max-width: 100%; height: auto; }
   transform: rotate(-45deg);
 }
 
+/* ---------- photos / figures (owner-supplied imagery) ---------- */
+
+.photo-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+figure.figure { margin: 0; }
+.figure img {
+  display: block; width: 100%; height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.figure figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--ink-soft); }
+/* fixed-ratio variant avoids layout shift before the image loads */
+.figure--ratio img { aspect-ratio: 4 / 3; object-fit: cover; }
+
 /* ---------- steps (how it works) ---------- */
 
 .steps { list-style: none; counter-reset: step; padding: 0; margin: 0; display: grid; gap: 1rem; }

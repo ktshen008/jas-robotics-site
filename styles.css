@@ -197,20 +197,23 @@ img, svg { max-width: 100%; height: auto; }
 
 .hero h1 { margin-bottom: 0.4em; }
 .hero .lead { font-size: 1.2rem; }
-.hero-photo { margin: 0 auto; max-width: 30rem; animation: hero-rise 720ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-.hero-photo img { box-shadow: var(--shadow-sm); transition: transform 300ms ease, box-shadow 300ms ease; }
-@media (hover: hover) {
-  .hero-photo:hover img { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(32, 43, 52, 0.15); }
+.hero-photo { margin: 0 auto; max-width: 30rem; perspective: 1200px; }
+.hero-photo img {
+  box-shadow: var(--shadow-sm);
+  transform-origin: center 60%;
+  animation: hero-float 6s ease-in-out infinite;
+  will-change: transform;
 }
-/* Transform-only (never opacity) so the LCP hero image is always visible,
-   even if the animation is throttled or never runs — it just settles in place. */
-@keyframes hero-rise {
-  from { transform: translateY(16px) scale(0.985); }
-  to   { transform: none; }
+/* Continuous gentle float + slow 3D turn, as if the robot is hovering and
+   rotating. Transform-only (never opacity): the LCP hero image is always fully
+   visible even if the animation is throttled or never runs — it just rests. */
+@keyframes hero-float {
+  0%   { transform: translateY(0)     rotateY(-5deg) rotateZ(-0.6deg); }
+  50%  { transform: translateY(-10px) rotateY(5deg)  rotateZ(0.6deg); }
+  100% { transform: translateY(0)     rotateY(-5deg) rotateZ(-0.6deg); }
 }
-/* Respect reduced-motion: no entrance animation (transitions already disabled above). */
 @media (prefers-reduced-motion: reduce) {
-  .hero-photo { animation: none; }
+  .hero-photo img { animation: none; transform: none; }
 }
 
 .page-hero { padding-block: 3rem 2.5rem; border-bottom: 1px solid var(--line-soft); background: var(--surface); }

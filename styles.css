@@ -197,25 +197,42 @@ img, svg { max-width: 100%; height: auto; }
 
 .hero h1 { margin-bottom: 0.4em; }
 .hero .lead { font-size: 1.2rem; }
-.hero-photo { margin: 0 auto; max-width: 30rem; perspective: 1000px; }
-.hero-photo img {
+.hero-photo { margin: 0 auto; max-width: 30rem; }
+.hero-photo figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--ink-soft); }
+
+/* Static bordered frame: the border + shadow do NOT move — only a gentle hover
+   lift. It clips a swaying image inside (frame background is white to match the
+   photo's white backdrop, so the clipped edges stay seamless). */
+.hero-photo-frame {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  isolation: isolate;
+  perspective: 1000px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+@media (hover: hover) {
+  .hero-photo:hover .hero-photo-frame { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(32, 43, 52, 0.15); }
+}
+
+/* Turntable sway on the image only — transform-only (never opacity), so the LCP
+   image is always visible even if throttled. Not rotateY(360): a flat JPG would
+   read as a flipping card, not a rotating robot. */
+.hero-photo-frame img {
+  display: block; width: 100%; height: auto;
   transform-origin: center 62%;
   animation: hero-turntable 5.5s ease-in-out infinite;
   will-change: transform;
 }
-/* Continuous "turntable sway": the robot swings left/right in 3D with a slight
-   bob — a stronger display turn than a hover wobble. Transform-only (never
-   opacity): the LCP hero image is always fully visible even if the animation is
-   throttled or never runs — it just rests. Deliberately NOT rotateY(360deg): a
-   flat JPG would read as a flipping card, not a rotating robot. */
 @keyframes hero-turntable {
   0%   { transform: translateX(-8px) translateY(0)    rotateY(-12deg) rotateZ(-0.8deg); }
   50%  { transform: translateX(8px)  translateY(-6px) rotateY(12deg)  rotateZ(0.8deg); }
   100% { transform: translateX(-8px) translateY(0)    rotateY(-12deg) rotateZ(-0.8deg); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-photo img { animation: none; transform: none; }
+  .hero-photo-frame img { animation: none; transform: none; }
 }
 
 .page-hero { padding-block: 3rem 2.5rem; border-bottom: 1px solid var(--line-soft); background: var(--surface); }

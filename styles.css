@@ -197,20 +197,22 @@ img, svg { max-width: 100%; height: auto; }
 
 .hero h1 { margin-bottom: 0.4em; }
 .hero .lead { font-size: 1.2rem; }
-.hero-photo { margin: 0 auto; max-width: 30rem; perspective: 1200px; }
+.hero-photo { margin: 0 auto; max-width: 30rem; perspective: 1000px; }
 .hero-photo img {
   box-shadow: var(--shadow-sm);
-  transform-origin: center 60%;
-  animation: hero-float 6s ease-in-out infinite;
+  transform-origin: center 62%;
+  animation: hero-turntable 5.5s ease-in-out infinite;
   will-change: transform;
 }
-/* Continuous gentle float + slow 3D turn, as if the robot is hovering and
-   rotating. Transform-only (never opacity): the LCP hero image is always fully
-   visible even if the animation is throttled or never runs — it just rests. */
-@keyframes hero-float {
-  0%   { transform: translateY(0)     rotateY(-5deg) rotateZ(-0.6deg); }
-  50%  { transform: translateY(-10px) rotateY(5deg)  rotateZ(0.6deg); }
-  100% { transform: translateY(0)     rotateY(-5deg) rotateZ(-0.6deg); }
+/* Continuous "turntable sway": the robot swings left/right in 3D with a slight
+   bob — a stronger display turn than a hover wobble. Transform-only (never
+   opacity): the LCP hero image is always fully visible even if the animation is
+   throttled or never runs — it just rests. Deliberately NOT rotateY(360deg): a
+   flat JPG would read as a flipping card, not a rotating robot. */
+@keyframes hero-turntable {
+  0%   { transform: translateX(-8px) translateY(0)    rotateY(-12deg) rotateZ(-0.8deg); }
+  50%  { transform: translateX(8px)  translateY(-6px) rotateY(12deg)  rotateZ(0.8deg); }
+  100% { transform: translateX(-8px) translateY(0)    rotateY(-12deg) rotateZ(-0.8deg); }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-photo img { animation: none; transform: none; }

@@ -54,16 +54,17 @@
     <section class="section">
       <div class="container">
 
-        <!-- PLACEHOLDER: Google Apps Script web-app /exec URL — to be supplied by owner (brief §14; setup guide: form-setup-google-sheet.md, kept locally).
-             To go live: set this form's action to the /exec URL and remove the disabled attribute from the submit button. -->
-        <!-- PLACEHOLDER: confirmed contact email — to be supplied by owner (brief §14). Do not publish any email address until confirmed. -->
+        <!-- Live intake: form posts to a Google Apps Script web app that appends to a private Sheet
+             and emails a notification per submission. To change the endpoint, redeploy the script
+             and update the action below (setup guide: form-setup-google-sheet.md, kept locally). -->
+        <!-- PLACEHOLDER: confirmed public contact email — to be supplied by owner (brief §14). Do not publish any email address until confirmed. -->
         <div class="notice" id="form-status-note">
-          <strong>Almost live:</strong> this form goes live once our intake service is connected. Check back shortly — we&rsquo;re setting it up now.
+          <strong>How this works:</strong> send the form and a real person will follow up — we read every request personally.
         </div>
 
         <hr class="rule">
 
-        <form class="form-grid" method="post" novalidate>
+        <form class="form-grid" method="post" action="https://script.google.com/macros/s/AKfycbwxcKQfujNcGHW44QF_rKjDJ4EzW7EcmnXIc_NdBB6EPIyjbOiFSlk65fSAOo582Noq/exec" novalidate>
           <div class="form-field form-field--full">
             <label for="request-type">What do you need?</label>
             <select id="request-type" name="request-type">
@@ -133,7 +134,7 @@
           </div>
 
           <div class="form-field form-field--full">
-            <button class="btn btn--accent" type="submit" disabled aria-describedby="form-status-note">Send request</button>
+            <button class="btn btn--accent" type="submit" aria-describedby="form-status-note">Send request</button>
           </div>
         </form>
 

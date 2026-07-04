@@ -320,6 +320,11 @@ figure.figure { margin: 0; }
   background: var(--surface);
 }
 .figure figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--ink-soft); }
+.figure--inset img {
+  box-sizing: border-box;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: #fff;
+}
 /* fixed-ratio variant avoids layout shift before the image loads */
 .figure--ratio img { aspect-ratio: 4 / 3; object-fit: cover; }
 

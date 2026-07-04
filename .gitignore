@@ -3,6 +3,8 @@
 # internal strategy and references that must never appear publicly
 # (brief §7 rule 1, §11).
 CLAUDE.md
+AGENTS.md
 DESIGN-NOTES.md
 JAS-Robotics-Web-Design-Brief-v2.md
+form-setup-google-sheet.md
 .claude/

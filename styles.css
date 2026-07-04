@@ -377,6 +377,14 @@ img, svg { max-width: 100%; height: auto; }
 
 /* ---------- forms ---------- */
 
+/* spam honeypot — visually removed, ignored by humans, filled by bots */
+.hp-field {
+  position: absolute !important;
+  left: -9999px; top: auto;
+  width: 1px; height: 1px;
+  overflow: hidden;
+}
+
 .form-grid { display: grid; gap: 1.1rem; }
 @media (min-width: 44em) {
   .form-grid { grid-template-columns: 1fr 1fr; }

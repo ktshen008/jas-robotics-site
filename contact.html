@@ -54,7 +54,8 @@
     <section class="section">
       <div class="container">
 
-        <!-- PLACEHOLDER: external form endpoint (Google Form / Formspree-class service) — to be supplied by owner (brief §14). Wire it to this form's action attribute and enable the submit button. -->
+        <!-- PLACEHOLDER: Google Apps Script web-app /exec URL — to be supplied by owner (brief §14; setup guide: form-setup-google-sheet.md, kept locally).
+             To go live: set this form's action to the /exec URL and remove the disabled attribute from the submit button. -->
         <!-- PLACEHOLDER: confirmed contact email — to be supplied by owner (brief §14). Do not publish any email address until confirmed. -->
         <div class="notice" id="form-status-note">
           <strong>Almost live:</strong> this form goes live once our intake service is connected. Check back shortly — we&rsquo;re setting it up now.
@@ -62,7 +63,7 @@
 
         <hr class="rule">
 
-        <form class="form-grid" novalidate>
+        <form class="form-grid" method="post" novalidate>
           <div class="form-field form-field--full">
             <label for="request-type">What do you need?</label>
             <select id="request-type" name="request-type">
@@ -126,13 +127,18 @@
             </select>
           </div>
 
+          <div class="form-field form-field--full hp-field" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="form-field form-field--full">
             <button class="btn btn--accent" type="submit" disabled aria-describedby="form-status-note">Send request</button>
           </div>
         </form>
 
         <hr class="rule">
-        <p class="caveat"><strong>Have a BOM or parts list?</strong> The connected intake form will support BOM / parts-list file uploads directly.<!-- PLACEHOLDER: BOM upload handled by the external form service, not this site (brief §4.6, §10) --></p>
+        <p class="caveat"><strong>Have a BOM or parts list?</strong> Mention it in your request — when we reply, we&rsquo;ll arrange the easiest way to get the file to us.<!-- NOTE: file upload is not supported by the sheet-backed intake; files are exchanged over email after first contact (brief §4.6, §10) --></p>
       </div>
     </section>
 

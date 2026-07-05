@@ -64,10 +64,11 @@
 
         <hr class="rule">
 
-        <form class="form-grid" method="post" action="https://script.google.com/macros/s/AKfycbwxcKQfujNcGHW44QF_rKjDJ4EzW7EcmnXIc_NdBB6EPIyjbOiFSlk65fSAOo582Noq/exec" novalidate>
+        <p class="caveat">Fields marked <span class="req" aria-hidden="true">*</span> are required.</p>
+        <form class="form-grid" method="post" action="https://script.google.com/macros/s/AKfycbwxcKQfujNcGHW44QF_rKjDJ4EzW7EcmnXIc_NdBB6EPIyjbOiFSlk65fSAOo582Noq/exec">
           <div class="form-field form-field--full">
-            <label for="request-type">What do you need?</label>
-            <select id="request-type" name="request-type">
+            <label for="request-type">What do you need? <span class="req" aria-hidden="true">*</span></label>
+            <select id="request-type" name="request-type" required>
               <option value="">Choose a request type&hellip;</option>
               <option value="ftc-frc-parts">FTC/FRC parts</option>
               <option value="group-order">Group order</option>
@@ -76,17 +77,19 @@
               <option value="stem-kit-question">STEM kit question</option>
               <option value="event-pickup">Event pickup</option>
               <option value="used-surplus">Used/surplus</option>
+              <option value="supplier-vendor">Supplier / vendor inquiry</option>
+              <option value="school-program-collaboration">School / program collaboration</option>
               <option value="other">Other</option>
             </select>
           </div>
 
           <div class="form-field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name">
+            <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
           </div>
           <div class="form-field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
           </div>
 
           <div class="form-field">
@@ -117,8 +120,8 @@
           </div>
 
           <div class="form-field form-field--full">
-            <label for="details">Parts, kits, or project support needed <span class="field-hint">Part numbers, links, quantities — whatever you have</span></label>
-            <textarea id="details" name="details"></textarea>
+            <label for="details">Parts, kits, or project support needed <span class="req" aria-hidden="true">*</span> <span class="field-hint">Part numbers, links, quantities — whatever you have</span></label>
+            <textarea id="details" name="details" required></textarea>
           </div>
 
           <div class="form-field form-field--full">

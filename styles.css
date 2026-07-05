@@ -457,6 +457,7 @@ figure.figure { margin: 0; }
 }
 
 .form-field label { display: block; font-weight: 650; font-size: 0.95rem; margin-bottom: 0.3rem; }
+.req { color: #b3261e; font-weight: 700; }
 .form-field .field-hint { display: block; font-weight: 400; font-size: 0.83rem; color: var(--ink-soft); }
 
 .form-field input,

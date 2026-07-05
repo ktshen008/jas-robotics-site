@@ -428,6 +428,29 @@ figure.figure { margin: 0; }
 }
 .progress-fill { height: 100%; width: 0; background: var(--track); border-radius: inherit; }
 
+/* ---------- open-round banner (hero announcement) ---------- */
+.round-banner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-top: 1.75rem;
+  padding: 1.1rem 1.4rem;
+  background: var(--track-soft);
+  border: 1px solid var(--track);
+  border-left: 4px solid var(--track);
+  border-radius: var(--radius);
+}
+.round-banner__label {
+  margin: 0 0 0.2rem;
+  font-family: var(--mono); font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--track-ink);
+}
+.round-banner__label::before {
+  content: ""; display: inline-block; width: 0.5rem; height: 0.5rem;
+  margin-right: 0.45rem; border-radius: 50%; background: var(--track); vertical-align: middle;
+}
+.round-banner__text { margin: 0; color: var(--ink); }
+.round-banner .btn { flex: none; }
+
 /* ---------- jump nav (in-page anchors) ---------- */
 
 .jump-nav ul { list-style: none; display: flex; gap: 0.6rem; flex-wrap: wrap; padding: 0; margin: 1.25rem 0 0; }

@@ -137,7 +137,7 @@
                 <dt>Status</dt>
                 <dd>Open — accepting parts lists and expressions of interest now.</dd>
                 <dt>Submission cutoff</dt>
-                <dd>To be confirmed — posted here once set.<!-- PLACEHOLDER: firm submission cutoff date — to be supplied by owner (brief §14; rule 7 — never invent dates) --></dd>
+                <dd>August 31, 2026.<!-- Owner-supplied 2026-07-04: this round closes Aug 31, 2026. --></dd>
               </dl>
               <p class="caveat">JAS Robotics is coordinating this consolidated order and is not affiliated with or endorsed by goBILDA.</p>
             </div>
@@ -150,11 +150,63 @@
           <!-- PLACEHOLDER: progress value toward this round's order minimum — manually updated by owner only, never estimated or faked (brief §5) -->
           <p class="caveat" id="round-progress-note">This round just opened — be among the first to submit a list. We confirm availability, the cutoff, and final landed cost with participants; no amounts are shown here.</p>
           <div class="btn-row">
-            <!-- PLACEHOLDER: external intake form URL (Google Form / Airtable) — replace this button's href when supplied (brief §14) -->
-            <a class="btn btn--accent" href="contact.html">Join this order round</a>
+            <a class="btn btn--accent" href="#round-intake">Join this order round</a>
           </div>
-          <p class="caveat">The online intake form is coming soon — until then, the button takes you to our contact form. Choose &ldquo;Group order&rdquo; as your request type.</p>
+          <p class="caveat">Submit your list in the form below — it reaches the same intake our team works from. We reply to confirm availability and landed cost before anything is ordered.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ Round intake form ============ -->
+    <section class="section section--alt" id="round-intake">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Join this round</p>
+          <h2>Submit your parts list</h2>
+          <p class="lead">Tell us what you&rsquo;d like from the current goBILDA FTC Starter Kit round (closes August 31, 2026). Your submission reaches our order intake directly; we reply to confirm availability, timing, and final landed cost before anything is ordered.</p>
+        </div>
+        <p class="caveat">Fields marked <span class="req" aria-hidden="true">*</span> are required. No payment is collected here — settlement is by e-transfer or invoice after confirmation.</p>
+        <form class="form-grid" method="post" action="https://script.google.com/macros/s/AKfycbwxcKQfujNcGHW44QF_rKjDJ4EzW7EcmnXIc_NdBB6EPIyjbOiFSlk65fSAOo582Noq/exec">
+          <input type="hidden" name="request-type" value="Group order — goBILDA FTC Starter Kit (2026–2027)">
+          <div class="form-field">
+            <label for="go-name">Name <span class="req" aria-hidden="true">*</span></label>
+            <input id="go-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="go-email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="go-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="go-org">Team / school / program</label>
+            <input id="go-org" name="organization" type="text" autocomplete="organization">
+          </div>
+          <div class="form-field">
+            <label for="go-city">City</label>
+            <input id="go-city" name="city" type="text" autocomplete="address-level2">
+          </div>
+          <div class="form-field">
+            <label for="go-team">Team number <span class="field-hint">If applicable</span></label>
+            <input id="go-team" name="team-number" type="text" inputmode="numeric">
+          </div>
+          <div class="form-field">
+            <label for="go-contact">Preferred contact method</label>
+            <select id="go-contact" name="contact-method">
+              <option value="email">Email</option>
+              <option value="phone">Phone</option>
+            </select>
+          </div>
+          <div class="form-field form-field--full">
+            <label for="go-details">What you&rsquo;d like from this round <span class="req" aria-hidden="true">*</span> <span class="field-hint">Kit quantity, specific parts, part numbers or links — whatever you have</span></label>
+            <textarea id="go-details" name="details" required></textarea>
+          </div>
+          <div class="form-field form-field--full hp-field" aria-hidden="true">
+            <label for="go-website">Leave this field empty</label>
+            <input id="go-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-field form-field--full">
+            <button class="btn btn--accent" type="submit">Submit to this round</button>
+          </div>
+        </form>
       </div>
     </section>
 
